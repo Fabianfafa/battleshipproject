@@ -8,6 +8,8 @@ var gameBoardContainer = document.getElementById("gameboard");
 
 // you can use this to convert your letters into numbers for use
 // with the 2D array
+var letterArray = ["A","B","C","D","E","F","G","H","I","J"]
+
 var letterConversion = {
 	"A": 0,
 	"B": 1,
@@ -18,7 +20,7 @@ var letterConversion = {
 	"G": 6,
 	"H": 7,
 	"I": 8,
-	"J": 9
+	"J": 9,
 }
 
 // makes the grid columns and rows
@@ -34,8 +36,8 @@ for (i = 0; i < cols; i++) {
 		square.className = "boardSquare";
 
 		// THIS IS WHERE YOU WILL ADD CODE FOR PART 1 TO ADD TEXT TO EACH SQUARE
-
-		// set each grid square's coordinates: multiples of the current row or column number
+		square.textContent = i + 1 + letterArray[j];
+		 // set each grid square's coordinates: multiples of the current row or column number
 		var topPosition = j * squareSize;
 		var leftPosition = i * squareSize;
 
