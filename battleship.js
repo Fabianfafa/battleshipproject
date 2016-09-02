@@ -8,8 +8,6 @@ var gameBoardContainer = document.getElementById("gameboard");
 
 // you can use this to convert your letters into numbers for use
 // with the 2D array
-var letterArray = ["A","B","C","D","E","F","G","H","I","J"]
-
 var letterConversion = {
 	"A": 0,
 	"B": 1,
@@ -22,6 +20,7 @@ var letterConversion = {
 	"I": 8,
 	"J": 9,
 }
+var letterArray = ["A","B","C","D","E","F","G","H","I","J"]
 
 // makes the grid columns and rows
 for (i = 0; i < cols; i++) {
@@ -62,7 +61,10 @@ var gameBoard = [
 				]
 
 function fireTorpedo() {
-
-	// Your game logic will go here!
+	var userInput = $("#myInputBox").val();
+	var rowLetter = userInput.substring(0,1);
+	var columm  = userInput.substring(1,2);
+	var row = LetterConversion[nowLetter];
+		// Your game logic will go here!
 
 }
