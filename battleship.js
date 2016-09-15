@@ -8,6 +8,7 @@ var gameBoardContainer = document.getElementById("gameboard");
 
 // you can use this to convert your letters into numbers for use
 // with the 2D array
+
 var letterConversion = {
 	"A": 0,
 	"B": 1,
@@ -23,8 +24,9 @@ var letterConversion = {
 var letterArray = ["A","B","C","D","E","F","G","H","I","J"]
 
 // makes the grid columns and rows
-for (i = 0; i < cols; i++) {
+
 	for (j = 0; j < rows; j++) {
+	for (i = 0; i < cols; i++) {
 
 		// creates a new div HTML element for each grid square and makes it the right size
 		var square = document.createElement("div");
@@ -35,7 +37,7 @@ for (i = 0; i < cols; i++) {
 		square.className = "boardSquare";
 
 		// THIS IS WHERE YOU WILL ADD CODE FOR PART 1 TO ADD TEXT TO EACH SQUARE
-		square.textContent = i + 1 + letterArray[j];
+		square.textContent = letterArray[j] + (i + 1);
 		 // set each grid square's coordinates: multiples of the current row or column number
 		var topPosition = j * squareSize;
 		var leftPosition = i * squareSize;
@@ -44,8 +46,7 @@ for (i = 0; i < cols; i++) {
 		square.style.top = topPosition + 'px';
 		square.style.left = leftPosition + 'px';
 	}
-}
-
+ }
 // Hardcoded 2D array to indicate where the ships are placed
 var gameBoard = [
 				[0,0,0,1,1,1,1,0,0,0],
@@ -58,13 +59,27 @@ var gameBoard = [
 				[1,0,0,1,0,0,0,0,0,0],
 				[1,0,0,1,0,0,0,0,0,0],
 				[1,0,0,0,0,0,0,0,0,0]
-				]
+	   		]
 
 function fireTorpedo() {
 	var userInput = $("#myInputBox").val();
+
 	var rowLetter = userInput.substring(0,1);
 	var columm  = userInput.substring(1,2);
-	var row = LetterConversion[nowLetter];
-		// Your game logic will go here!
+
+	var row = letterConversion[rowLetter];
+
+	var battleshipGuess = gameBoard[row][column];
+
+	var  myDivString = "#s" + row + column;
+
+	if(battleshipGuess == 1){
+		$(myDivstring).css("background-color", "red");
+		$("#instructions").text("YOU SUNK ALL MY BATTLESHIPS!");
+	}
+
+
 
 }
+
+		// Your game logic will go here!
